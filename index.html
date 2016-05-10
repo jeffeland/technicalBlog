@@ -1,1 +1,16 @@
-This is my blog
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>This is my GitHub Blog</title>
+    <script src="./marked.js"></script>
+</head>
+<body>
+There will be markdown blog posts displayed here.
+<div id="content"></div>
+<script>
+    document.getElementById('content').innerHTML =
+            marked('# Marked in browser\n\nRendered by **marked**.');
+</script>
+</body>
+</html>
