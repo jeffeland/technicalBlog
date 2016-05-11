@@ -1,84 +1,144 @@
-# An exhibit of Markdown
+# H1
+## H2
+### H3
+#### H4
+##### H5
+###### H6
 
-This note demonstrates some of what [Markdown][1] is capable of doing.
+Alternatively, for H1 and H2, an underline-ish style:
 
-*Note: Feel free to play with this page. Unlike regular notes, this doesn't automatically save itself.*
+Alt-H1
+======
 
-## Basic formatting
+Alt-H2
+------
 
-Paragraphs can be written like so. A paragraph is the basic block of Markdown. A paragraph is what text will turn into when there is no reason it should become anything else.
+Emphasis, aka italics, with *asterisks* or _underscores_.
 
-Paragraphs must be separated by a blank line. Basic formatting of *italics* and **bold** is supported. This *can be **nested** like* so.
+Strong emphasis, aka bold, with **asterisks** or __underscores__.
 
-## Lists
+Combined emphasis with **asterisks and _underscores_**.
 
-### Ordered list
+Strikethrough uses two tildes. ~~Scratch this.~~  
 
-1. Item 1
-2. A second item
-3. Number 3
-4. Ⅳ
+1. First ordered list item
+2. Another item
+⋅⋅* Unordered sub-list. 
+1. Actual numbers don't matter, just that it's a number
+⋅⋅1. Ordered sub-list
+4. And another item.
 
-*Note: the fourth item uses the Unicode character for [Roman numeral four][2].*
+⋅⋅⋅You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).
 
-### Unordered list
+⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅
+⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅
+⋅⋅⋅(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)
 
-* An item
-* Another item
-* Yet another item
-* And there's more...
+* Unordered list can use asterisks
+- Or minuses
++ Or pluses  
 
-## Paragraph modifiers
+[I'm an inline-style link](https://www.google.com)
 
-### Code block
+[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
 
-    Code blocks are very useful for developers and other people who look at code or other things that are written in plain text. As you can see, it uses a fixed-width font.
+[I'm a reference-style link][Arbitrary case-insensitive reference text]
 
-You can also make `inline code` to add code into other things.
+[I'm a relative reference to a repository file](../blob/master/LICENSE)
 
-### Quote
+[You can use numbers for reference-style link definitions][1]
 
-> Here is a quote. What this is should be self explanatory. Quotes are automatically indented when they are used.
+Or leave it empty and use the [link text itself].
 
-## Headings
+URLs and URLs in angle brackets will automatically get turned into links. 
+http://www.example.com or <http://www.example.com> and sometimes 
+example.com (but not on Github, for example).
 
-There are six levels of headings. They correspond with the six levels of HTML headings. You've probably noticed them already in the page. Each level down uses one more hash character.
+Some text to show that the reference links can follow later.
 
-### Headings *can* also contain **formatting**
+[arbitrary case-insensitive reference text]: https://www.mozilla.org
+[1]: http://slashdot.org
+[link text itself]: http://www.reddit.com  
 
-### They can even contain `inline code`
+Here's our logo (hover to see the title text):
 
-Of course, demonstrating what headings look like messes up the structure of the page.
+Inline-style: 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 1")
 
-I don't recommend using more than three or four levels of headings here, because, when you're smallest heading isn't too small, and you're largest heading isn't too big, and you want each size up to look noticeably larger and more important, there there are only so many sizes that you can use.
+Reference-style: 
+![alt text][logo]
 
-## URLs
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Logo Title Text 2"  
 
-URLs can be made in a handful of ways:
+```javascript
+var s = "JavaScript syntax highlighting";
+alert(s);
+```
+ 
+```python
+s = "Python syntax highlighting"
+print s
+```
+ 
+```
+No language indicated, so no syntax highlighting. 
+But let's throw in a <b>tag</b>.
+```
 
-* A named link to [MarkItDown][3]. The easiest way to do these is to select what you want to make a link and hit `Ctrl+L`.
-* Another named link to [MarkItDown](http://www.markitdown.net/)
-* Sometimes you just want a URL like <http://www.markitdown.net/>.
+Colons can be used to align columns.
 
-## Horizontal rule
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
 
-A horizontal rule is a line that goes across the middle of the page.
+There must be at least 3 dashes separating each header cell.
+The outer pipes (|) are optional, and you don't need to make the 
+raw Markdown line up prettily. You can also use inline Markdown.
+
+Markdown | Less | Pretty
+--- | --- | ---
+*Still* | `renders` | **nicely**
+1 | 2 | 3   
+
+> Blockquotes are very handy in email to emulate reply text.
+> This line is part of the same quote.
+
+Quote break.
+
+> This is a very long line that will still be quoted properly when it wraps. Oh boy let's keep writing to make sure this is long enough to actually wrap for everyone. Oh, you can *put* **Markdown** into a blockquote. 
+Blockquotes are very handy in email to emulate reply text. This line is part of the same quote.
+
+<dl>
+  <dt>Definition list</dt>
+  <dd>Is something people use sometimes.</dd>
+
+  <dt>Markdown in HTML</dt>
+  <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd>
+</dl>
+
+Three or more...
 
 ---
 
-It's sometimes handy for breaking things up.
+Hyphens
 
-## Images
+***
 
-Markdown can also contain images. I'll need to add something here sometime.
+Asterisks
 
-## Finally
+___
 
-There's actually a lot more to Markdown than this. See the official [introduction][4] and [syntax][5] for more information. However, be aware that this is not using the official implementation, and this might work subtly differently in some of the little things.
+Underscores  
 
+Here's a line for us to start with.
 
-  [1]: http://daringfireball.net/projects/markdown/
-  [2]: http://www.fileformat.info/info/unicode/char/2163/index.htm
-  [3]: http://www.markitdown.net/
-  [4]: http://daringfireball.net/projects/markdown/basics
-  [5]: http://daringfireball.net/projects/markdown/syntax
+This line is separated from the one above by two newlines, so it will be a *separate paragraph*.
+
+This line is also a separate paragraph, but...
+This line is only separated by a single newline, so it's a separate line in the *same paragraph*.  
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_VIDEO_ID_HERE
+" target="_blank"><img src="http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg" 
+alt="IMAGE ALT TEXT HERE" width="240" height="180" border="10" /></a>  
