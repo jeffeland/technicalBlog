@@ -1,26 +1,32 @@
 <!doctype html>
-<html>
+<html ng-app="app">
 <head>
     <meta charset="utf-8"/>
+    <meta name="author" content="Jean-Francois Landreau">
+
     <title>This is my GitHub Blog</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.6/journal/bootstrap.min.css">
+    <link rel="stylesheet" href="index.css">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="./controller.js"></script>
 </head>
-<body>
-    <div class="page-header">
-        <h1>My Blog</h1>
-        <h1><small>It's going to be interesting.</small></small></h1>
-    </div>
-
-    <section id="blogposts">
-	<div class="container">
-	    <div class="row">
-            	<div class="col-md-12" id="content">
-            	</div>
-	    </div>
+<body ng-controller="controller">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <a class="navbar-brand" href="#blogposts">My Blog</a>
+            </div>
         </div>
+    </nav>
+    <section class="blog" id="blogposts">
+            <div class="container">
+                <div class="col-md-12">
+                    <h1>{{data.title}}</h1>
+                    <h3>{{data.subtitle}}</h3>
+                    <div ng-bind-html="data.content"></div>
+                </div>
+            </div>
     </section>
-<script src="./index.js"></script>
 </body>
 </html>
