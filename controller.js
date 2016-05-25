@@ -1,5 +1,11 @@
 'use strict';
 
+marked.setOptions({
+  highlight: function (code) {
+    return hljs.highlightAuto(code).value;
+  }
+});
+
 /* Controllers */
 var app = angular.module('app', []);
 
