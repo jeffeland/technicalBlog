@@ -3,3 +3,8 @@
     position:relative;
     padding-top: 70px;
 }
+
+body {
+  font-size: 20px;
+  color: #404040;
+}
