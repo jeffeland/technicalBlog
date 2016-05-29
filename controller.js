@@ -1,3 +1,8 @@
+/*
+ myGitHubBlog
+ (c) 2016 Jean-Francois Landreau http://github.com/jeffeland
+ License: MIT
+ */
 'use strict';
 
 marked.setOptions({
@@ -6,32 +11,53 @@ marked.setOptions({
   }
 });
 
-/* Controllers */
-var app = angular.module('app', []);
+var g_toc = {};
 
-app.controller('controller', function($scope, $http, $sce) {
-  $http.get('./toc.json').success(function(toc) {
-    $http.get(toc.content).success(function(content) {
-      toc.content=$sce.trustAsHtml(marked(content));
-      $scope.data=toc;
-    })
+var app = angular.module('app', ['ngRoute']);
+
+app.config(['$routeProvider',
+  function ($routeProvider) {
+    $routeProvider.
+        when('/author', {
+          templateUrl: 'author.html',
+          controller: 'author'
+        }).
+        when('/toc', {
+          templateUrl: 'toc.html',
+          controller: 'toc'
+        }).
+        when('/blogpost/:blogPostId', {
+          templateUrl: 'blog-post.html',
+          controller: 'blogPost'
+        }).
+        otherwise({
+          redirectTo: '/toc'
+        });
+  }]);
+
+app.controller('author', function ($scope, $http, $sce) {
+  $http.get('./data/author.md').success(function (authorDetails) {
+    $scope.authorDetails = $sce.trustAsHtml(marked(authorDetails));
+  });
+});
+
+app.controller('toc', function ($scope, $http) {
+  $http.get('./data/toc.json').success(function (l_toc) {
+    g_toc = l_toc;
+    $scope.toc = g_toc;
   })
 });
 
-/*
-sampleApp .config(['$routeProvider',
-  function($routeProvider) {
-    $routeProvider.
-      when('/addOrder', {
-        templateUrl: 'templates/add-order.html',
-        controller: 'AddOrderController'
-      }).
-      when('/showOrders', {
-        templateUrl: 'templates/show-orders.html',
-        controller: 'ShowOrdersController'
-      }).
-      otherwise({
-        redirectTo: '/addOrder'
-      });
-  }]);
-*/
+app.controller('blogPost', function ($scope, $http, $routeParams) {
+  var blogPost = {};
+  for(var i = 0; i < g_toc.length; i++) {
+    if(g_toc[i].id == $routeParams.blogPostId) {
+      blogPost = g_toc[i];
+      $http.get('./data/' + blogPost.content).success(function (blogContent) {
+              blogPost.content = $sce.trustAsHtml(marked(blogContent));
+          });
+      break;
+    }
+  }
+  $scope.blogPost = blogPost;
+});

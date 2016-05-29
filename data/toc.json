@@ -4,15 +4,15 @@
             "title": "My first blog post",
             "subtitle": "It's going to be interesting",
             "date" : "26 May 2016",
-            "picture": "./blogpostexample1.jpg",
-            "content": "./blogpostexample1.md"
+            "picture": "blogpostexample1.jpg",
+            "content": "blogpostexample1.md"
       },
       {
           "id": "blogpostexample2",
           "title": "My second blog post",
           "subtitle": "It's going to be better",
           "date" : "30 May 2016",
-          "picture": "./blogpostexample2.jpg",
-          "content": "./blogpostexample2.md"
+          "picture": "blogpostexample2.jpg",
+          "content": "blogpostexample2.md"
       }
 ]
