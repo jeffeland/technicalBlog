@@ -3,12 +3,6 @@ myGitHubBlog
 (c) 2016 Jean-Francois Landreau http://github.com/jeffeland
 License: MIT
 */
-.blog {
-    width:100%;
-    position:relative;
-    padding-top: 70px;
-}
-
 body {
   font-size: 20px;
   color: #404040;
