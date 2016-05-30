@@ -1,14 +1,14 @@
-/*
+<!--
 myGitHubBlog
 (c) 2016 Jean-Francois Landreau http://github.com/jeffeland
 License: MIT
-*/
+-->
 <section class="content">
     <div class="container" ng-repeat="tocItem in toc">
         <a ng-href="#blogpost/{{tocItem.id}}">
             <div class="col-md-12">
                 <h1>{{tocItem.title}}</h1>
-                <h3>{{tocItem.subtitle}}</h3>
+                <em>{{tocItem.subtitle}}</em>
                 <h5>{{tocItem.date}}</h5>
             </div>
         </a>

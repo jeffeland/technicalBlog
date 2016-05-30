@@ -1,14 +1,18 @@
-/*
+<!--
 myGitHubBlog
 (c) 2016 Jean-Francois Landreau http://github.com/jeffeland
 License: MIT
-*/
+-->
+
+<!-- TODO : better template to separate the header from the content more distinctively. -->
 <section class="content">
     <div class="container">
         <div class="col-md-12">
             <h1>{{blogPost.title}}</h1>
-            <h3>{{blogPost.subtitle}}</h3>
+            <em>{{blogPost.subtitle}}</em>
+
             <div ng-bind-html="blogPost.content"></div>
         </div>
     </div>
 </section>
+<!-- TODO : template integrating sharing buttons with Twitter and LinkedIn. -->

@@ -11,7 +11,7 @@ marked.setOptions({
     }
 });
 
-var g_toc = {};
+var g_toc = null;
 
 var app = angular.module('app', ['ngRoute']);
 
@@ -42,21 +42,41 @@ app.controller('author', function ($scope, $http, $sce) {
 });
 
 app.controller('toc', function ($scope, $http) {
-    $http.get('./data/toc.json').success(function (l_toc) {
-        g_toc = l_toc;
+    if(g_toc  == null)
+    {
+        $http.get('./data/toc.json').success(function (l_toc) {
+            g_toc = l_toc;
+            $scope.toc = g_toc;
+        })
+    }
+    else {
         $scope.toc = g_toc;
-    })
+    }
 });
 
+
 app.controller('blogPost', function ($scope, $http, $routeParams, $sce) {
-    for (var i = 0; i < g_toc.length; i++) {
-        if (g_toc[i].id == $routeParams.blogPostId) {
-            var blogPost = g_toc[i];
-            $http.get('./data/' + blogPost.content).success(function (blogContent) {
-                blogPost.content = $sce.trustAsHtml(marked(blogContent));
-                $scope.blogPost = blogPost;
-            });
-            break;
+    function setBlogPostData()
+    {
+        for (var i = 0; i < g_toc.length; i++) {
+            if (g_toc[i].id == $routeParams.blogPostId) {
+                var blogPost = g_toc[i];
+                $http.get('./data/' + blogPost.content).success(function (blogContent) {
+                    blogPost.content = $sce.trustAsHtml(marked(blogContent));
+                    $scope.blogPost = blogPost;
+                });
+                break;
+            }
         }
+    }
+
+    if(g_toc  == null) {
+        $http.get('./data/toc.json').success(function (l_toc) {
+            g_toc = l_toc;
+            setBlogPostData();
+        })
+    }
+    else {
+        setBlogPostData();
     }
 });
