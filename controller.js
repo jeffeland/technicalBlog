@@ -61,10 +61,17 @@ app.controller('blogPost', function ($scope, $http, $routeParams, $sce) {
         for (var i = 0; i < g_toc.length; i++) {
             if (g_toc[i].id == $routeParams.blogPostId) {
                 var blogPost = g_toc[i];
-                $http.get('./data/' + blogPost.content).success(function (blogContent) {
-                    blogPost.content = $sce.trustAsHtml(marked(blogContent));
+                if(!blogPost.content.endsWith(".md"))
+                {
+                    $http.get('./data/' + blogPost.content).success(function (blogContent) {
+                        blogPost.content = $sce.trustAsHtml(marked(blogContent));
+                        $scope.blogPost = blogPost;
+                    });
+                }
+                else
+                {
                     $scope.blogPost = blogPost;
-                });
+                }
                 break;
             }
         }
