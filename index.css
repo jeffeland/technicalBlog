@@ -4,9 +4,25 @@ myGitHubBlog
 License: MIT
 */
 .mainView {
-  padding-top: 3em;
+  padding-top: 2em;
 }
 body {
   font-size: 20px;
   color: #404040;
+}
+html, body {
+  height:100%;
+  overflow:hidden;
+}
+.wrapper {
+  overflow-y:scroll;
+  height:99%;
+  padding-bottom: 40px;
+}
+.footer {
+  position:fixed;
+  bottom:0;
+  min-height:40px;
+  width:100%;
+  background-color:whitesmoke;
 }
